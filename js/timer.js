@@ -4,7 +4,7 @@ var interv;
 
 
 function done(){    
-    $( ".panel-tablero" ).hide();
+    $( ".panel-tablero" ).toggle(2000);
     $( ".score" ).animate({        
      "width": "700px",
      "margin-left": "20px"
@@ -13,7 +13,10 @@ function done(){
      "width": "700px",
      "margin-left": "20px"
   }, 2000 );
-
+$('.btn-reinicio').click(function(){
+    $( ".panel-tablero" ).show();
+ });
+ time = new Date(120000);
 }
 $(function(){
     displayTime();
@@ -35,7 +38,7 @@ $(function(){
     $(".pause").on("click", function(){
         clearInterval(interv);
     });
-    $(".reset").on("click", function(){
+    $("btn:contains('Reiniciar')").on("click", function(){
         time = new Date(120000);
         displayTime();
     });
